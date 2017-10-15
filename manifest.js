@@ -6,12 +6,27 @@ module.exports = {
     init: function (pluginContext) {
         const yamlFileContent = fs.readFileSync(pluginContext.settings.definitionFile)
         const definition = yaml.safeLoad(yamlFileContent)
-        console.log(definition)
-        pluginContext.registerGatewayRoute(app => {
-            app.get('/test', (req, res) => {
-                res.json({hello: 'Plugin here!'})
-            })
-        })
+
+        for (path in definition.paths) {
+            console.log(path)
+            for (method in definition.paths[path]) {
+                console.log(method)
+                let methodDefinition = definition.paths[path]
+                console.log(methodDefinition)
+                let example = methodDefinition.examples[0]
+                console.log(example)
+                /*switch(method) {
+                    case 'get':
+                        pluginContext.registerGatewayRoute(app => {
+                            app.get(path, (req, res) => {
+                                res.json({hello: 'Plugin here!'})
+                            })
+                        })
+                }*/
+            }
+        }
+
+
     },
     options: {
         definitionFile: {
