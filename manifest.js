@@ -12,15 +12,15 @@ module.exports = {
                 let methodDefinition = definition.paths[path][method]
                 let firstExampleKey = Object.keys(methodDefinition.examples)[0]
                 let example = methodDefinition.examples[firstExampleKey]
-                console.log(example)
-                /*switch(method) {
+
+                switch(method) {
                     case 'get':
                         pluginContext.registerGatewayRoute(app => {
                             app.get(path, (req, res) => {
-                                res.json({hello: 'Plugin here!'})
+                                res.json(example)
                             })
                         })
-                }*/
+                }
             }
         }
 
