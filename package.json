@@ -22,6 +22,7 @@
   "main": "manifest.js",
   "dependencies": {
     "fs": "0.0.1-security",
-    "js-yaml": "^3.10.0"
+    "js-yaml": "^3.10.0",
+    "react-lincoln": "github:temando/open-api-renderer#master"
   }
 }
