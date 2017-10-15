@@ -1,0 +1,22 @@
+{
+  "name": "express-gateway-plugin-openapi3-mock-server",
+  "version": "0.0.1",
+  "description": "A plugin which provides a mock server based on an OpenAPI 3 specification.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://szasza-github/szasza/express-gateway-plugin-openapi3-responder"
+  },
+  "keywords": [
+    "openapi",
+    "openapi3",
+    "mock",
+    "mockserver",
+    "express",
+    "gateway"
+  ],
+  "author": "Szabolcs (Szasza) Palmer",
+  "license": "Beerware"
+}
