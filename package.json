@@ -18,5 +18,6 @@
     "gateway"
   ],
   "author": "Szabolcs (Szasza) Palmer",
-  "license": "Beerware"
+  "license": "Beerware",
+  "main": "manifest.js"
 }
