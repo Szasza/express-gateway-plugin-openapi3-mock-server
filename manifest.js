@@ -1,5 +1,5 @@
-import fs from 'fs'
-import yaml from 'js-yaml'
+const fs = require('fs')
+const yaml = require('js-yaml')
 
 module.exports = {
     version: '1.2.0',
