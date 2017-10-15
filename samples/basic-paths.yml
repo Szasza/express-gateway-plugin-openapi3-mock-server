@@ -1,0 +1,23 @@
+openapi: "3.0.0"
+paths:
+  /dummy-response
+    get:
+      examples:
+        dummy:
+          status: "GET ok"
+    post:
+      examples:
+        dummy:
+          status: "POST ok"
+    put:
+      examples:
+        dummy:
+          status: "PUT ok"
+    patch:
+      examples:
+        dummy:
+          status: "PATCH ok"
+    delete:
+      examples:
+        dummy:
+          status: "DELETE ok"

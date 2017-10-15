@@ -1,5 +1,6 @@
 const fs = require('fs')
 const yaml = require('js-yaml')
+const refParser = require('json-schema-ref-parser')
 
 module.exports = {
     version: '1.2.0',
@@ -20,6 +21,35 @@ module.exports = {
                                 res.json(example)
                             })
                         })
+                        break
+                    case 'post':
+                        pluginContext.registerGatewayRoute(app => {
+                            app.post(path, (req, res) => {
+                                res.json(example)
+                            })
+                        })
+                        break
+                    case 'patch':
+                        pluginContext.registerGatewayRoute(app => {
+                            app.patch(path, (req, res) => {
+                                res.json(example)
+                            })
+                        })
+                        break
+                    case 'put':
+                        pluginContext.registerGatewayRoute(app => {
+                            app.put(path, (req, res) => {
+                                res.json(example)
+                            })
+                        })
+                        break
+                    case 'delete':
+                        pluginContext.registerGatewayRoute(app => {
+                            app.delete(path, (req, res) => {
+                                res.json(example)
+                            })
+                        })
+                        break
                 }
             }
         }
