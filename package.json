@@ -19,5 +19,9 @@
   ],
   "author": "Szabolcs (Szasza) Palmer",
   "license": "Beerware",
-  "main": "manifest.js"
+  "main": "manifest.js",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "js-yaml": "^3.10.0"
+  }
 }

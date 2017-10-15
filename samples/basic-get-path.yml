@@ -1,0 +1,7 @@
+openapi: "3.0.0"
+paths:
+  /dummy-response
+    get:
+      examples:
+        dummy:
+          status: "ok"

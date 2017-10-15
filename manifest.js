@@ -1,6 +1,12 @@
+import fs from 'fs'
+import yaml from 'js-yaml'
+
 module.exports = {
     version: '1.2.0',
     init: function (pluginContext) {
+        const yamlFileContent = fs.readFileSync(pluginContext.settings.definitionFile)
+        const definition = yaml.safeLoad(yamlFileContent)
+        console.log(definition)
         pluginContext.registerGatewayRoute(app => {
             app.get('/test', (req, res) => {
                 res.json({hello: 'Plugin here!'})
