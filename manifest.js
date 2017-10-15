@@ -8,10 +8,8 @@ module.exports = {
         const definition = yaml.safeLoad(yamlFileContent)
 
         for (path in definition.paths) {
-            console.log(path)
             for (method in definition.paths[path]) {
-                console.log(method)
-                let methodDefinition = definition.paths[path]
+                let methodDefinition = definition.paths[path][method]
                 console.log(methodDefinition)
                 let example = methodDefinition.examples[0]
                 console.log(example)
