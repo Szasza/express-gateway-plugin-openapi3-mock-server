@@ -62,7 +62,7 @@ module.exports = {
                 })
                 break
         }
-    }
+    },
 
     options: {
         definitionFile: {
