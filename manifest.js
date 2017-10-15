@@ -10,8 +10,8 @@ module.exports = {
         for (path in definition.paths) {
             for (method in definition.paths[path]) {
                 let methodDefinition = definition.paths[path][method]
-                console.log(methodDefinition)
-                let example = methodDefinition.examples[0]
+                let firstExampleKey = Object.keys(methodDefinition.examples)[0]
+                let example = methodDefinition.examples[firstExampleKey]
                 console.log(example)
                 /*switch(method) {
                     case 'get':
