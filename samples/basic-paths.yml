@@ -8,7 +8,8 @@ paths:
             application/json:
               examples:
                 dummy:
-                  status: "GET ok"
+                  value:
+                    status: "GET ok"
     post:
       responses:
         201:
@@ -16,7 +17,8 @@ paths:
             application/json:
               examples:
                 dummy:
-                  status: "POST ok"
+                  value:
+                    status: "POST ok"
     put:
       responses:
         200:
@@ -24,7 +26,8 @@ paths:
             application/json:
               examples:
                 dummy:
-                  status: "PUT ok"
+                  value:
+                    status: "PUT ok"
     patch:
       responses:
         200:
@@ -32,7 +35,8 @@ paths:
             application/json:
               examples:
                 dummy:
-                  status: "PATCH ok"
+                  value:
+                    status: "PATCH ok"
     delete:
       responses:
         200:
@@ -40,4 +44,5 @@ paths:
             application/json:
               examples:
                 dummy:
-                  status: "DELETE ok"
+                  value:
+                    status: "DELETE ok"

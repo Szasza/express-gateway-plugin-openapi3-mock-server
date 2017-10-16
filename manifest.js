@@ -31,7 +31,7 @@ module.exports = {
             done = true;
         })
         deasync.loopWhile(function(){
-            return done === true
+            return done === false
         })
 
         for (path in definition.paths) {
