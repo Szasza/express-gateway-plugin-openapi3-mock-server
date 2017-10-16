@@ -16,8 +16,10 @@ module.exports = {
         for (path in definition.paths) {
             for (method in definition.paths[path]) {
                 let methodDefinition = definition.paths[path][method]
-                let firstExampleKey = Object.keys(methodDefinition.examples)[0]
-                let example = methodDefinition.examples[firstExampleKey]
+                let responseCode = Object.keys(methodDefinition.responses)[0]
+                let examples = methodDefinition.responses[responseCode].content['application/json'].examples
+                let firstExampleKey = Object.keys(examples)[0]
+                let example = examples[firstExampleKey]
 
                 this.registerRoute(path, method, example)
             }
