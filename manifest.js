@@ -1,4 +1,5 @@
 const RefParser = require('json-schema-ref-parser')
+const deasync = require('deasync')
 
 module.exports = {
     version: '1.2.0',
@@ -18,7 +19,9 @@ module.exports = {
             }
         })
 
-        let definition, done = false;
+        let definition = {}
+        let done = false
+
         RefParser.dereference(pluginContext.settings.definitionFile, parserOptions, function(err, schema) {
             if (err) {
                 console.error(err);
@@ -26,8 +29,10 @@ module.exports = {
             }
             definition = schema;
             done = true;
-        });
-        require('deasync').loopWhile(function(){return !done;});
+        })
+        deasync.loopWhile(function(){
+            return done === true
+        })
 
         for (path in definition.paths) {
             for (method in definition.paths[path]) {
@@ -38,44 +43,48 @@ module.exports = {
                 let firstExampleKey = Object.keys(examples)[0]
                 let example = examples[firstExampleKey].value
 
-                switch(method) {
-                    case 'get':
-                        pluginContext.registerGatewayRoute(app => {
-                            app.get(requestPath, (req, res) => {
-                                res.json(example)
-                            })
-                        })
-                        break
-                    case 'post':
-                        pluginContext.registerGatewayRoute(app => {
-                            app.post(requestPath, (req, res) => {
-                                res.json(example)
-                            })
-                        })
-                        break
-                    case 'patch':
-                        pluginContext.registerGatewayRoute(app => {
-                            app.patch(requestPath, (req, res) => {
-                                res.json(example)
-                            })
-                        })
-                        break
-                    case 'put':
-                        pluginContext.registerGatewayRoute(app => {
-                            app.put(requestPath, (req, res) => {
-                                res.json(example)
-                            })
-                        })
-                        break
-                    case 'delete':
-                        pluginContext.registerGatewayRoute(app => {
-                            app.delete(requestPath, (req, res) => {
-                                res.json(example)
-                            })
-                        })
-                        break
-                }
+                this.registerRoute(pluginContext, requestPath, example)
             }
+        }
+    },
+
+    registerRoute: function (pluginContext, requestPath, example) {
+        switch(method) {
+            case 'get':
+                pluginContext.registerGatewayRoute(app => {
+                    app.get(requestPath, (req, res) => {
+                        res.json(example)
+                    })
+                })
+                break
+            case 'post':
+                pluginContext.registerGatewayRoute(app => {
+                    app.post(requestPath, (req, res) => {
+                        res.json(example)
+                    })
+                })
+                break
+            case 'patch':
+                pluginContext.registerGatewayRoute(app => {
+                    app.patch(requestPath, (req, res) => {
+                        res.json(example)
+                    })
+                })
+                break
+            case 'put':
+                pluginContext.registerGatewayRoute(app => {
+                    app.put(requestPath, (req, res) => {
+                        res.json(example)
+                    })
+                })
+                break
+            case 'delete':
+                pluginContext.registerGatewayRoute(app => {
+                    app.delete(requestPath, (req, res) => {
+                        res.json(example)
+                    })
+                })
+                break
         }
     },
 
