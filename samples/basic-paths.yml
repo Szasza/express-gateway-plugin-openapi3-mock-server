@@ -1,0 +1,48 @@
+openapi: "3.0.0"
+paths:
+  /dummy-response:
+    get:
+      responses:
+        200:
+          content:
+            application/json:
+              examples:
+                dummy:
+                  value:
+                    status: "GET ok"
+    post:
+      responses:
+        201:
+          content:
+            application/json:
+              examples:
+                dummy:
+                  value:
+                    status: "POST ok"
+    put:
+      responses:
+        200:
+          content:
+            application/json:
+              examples:
+                dummy:
+                  value:
+                    status: "PUT ok"
+    patch:
+      responses:
+        200:
+          content:
+            application/json:
+              examples:
+                dummy:
+                  value:
+                    status: "PATCH ok"
+    delete:
+      responses:
+        200:
+          content:
+            application/json:
+              examples:
+                dummy:
+                  value:
+                    status: "DELETE ok"
