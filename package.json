@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://szasza-github/szasza/express-gateway-plugin-openapi3-responder"
+    "url": "git@github.com:Szasza/express-gateway-plugin-openapi3-mock-server.git"
   },
   "keywords": [
     "openapi",
