@@ -19,6 +19,11 @@ module.exports = {
             }
         })
 
+        const parserOptions = {
+            dereference: {
+                circular: true
+            }
+        }
         let definition = {}
         let done = false
 
