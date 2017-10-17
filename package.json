@@ -19,5 +19,13 @@
   ],
   "author": "Szabolcs (Szasza) Palmer",
   "license": "Beerware",
-  "main": "manifest.js"
+  "main": "manifest.js",
+  "dependencies": {
+    "deasync": "^0.1.10",
+    "json-schema-ref-parser": "^4.0.0"
+  },
+  "bundledDependencies": [
+    "deasync",
+    "json-schema-ref-parser"
+  ]
 }
