@@ -49,3 +49,4 @@ pipelines:
           - action
 ```
 The above configuration disables the Admin CLI and will do nothing but provide a dummy responder based on your 
+OpenAPI specification.
