@@ -1,5 +1,4 @@
-const RefParser = require('json-schema-ref-parser')
-const deasync = require('deasync')
+const parse = require('./parser/parse')
 
 module.exports = {
     version: '1.2.0',
@@ -12,32 +11,12 @@ module.exports = {
             name: 'mock',
             policy: (actionParams) => {
                 return (req, res, next) => {
-                    console.log('executing policy mock', actionParams);
-                    next() // calling next policy
-                    // or write response:  res.json({result: "this is the response"})
+                    next()
                 };
             }
         })
 
-        const parserOptions = {
-            dereference: {
-                circular: true
-            }
-        }
-        let definition = {}
-        let done = false
-
-        RefParser.dereference(pluginContext.settings.definitionFile, parserOptions, function(err, schema) {
-            if (err) {
-                console.error(err);
-                return done = false;
-            }
-            definition = schema;
-            done = true;
-        })
-        deasync.loopWhile(function(){
-            return done === false
-        })
+        const definition = parse(pluginContext.settings.definitionFile)
 
         for (path in definition.paths) {
             for (method in definition.paths[path]) {
