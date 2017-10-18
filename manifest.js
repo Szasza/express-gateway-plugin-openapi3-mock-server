@@ -27,12 +27,12 @@ module.exports = {
                 let firstExampleKey = Object.keys(examples)[0]
                 let example = examples[firstExampleKey].value
 
-                this.registerRoute(pluginContext, requestPath, example)
+                this.registerRoute(pluginContext, method, requestPath, example)
             }
         }
     },
 
-    registerRoute: function (pluginContext, requestPath, example) {
+    registerRoute: function (pluginContext, method, requestPath, example) {
         switch(method) {
             case 'get':
                 pluginContext.registerGatewayRoute(app => {
