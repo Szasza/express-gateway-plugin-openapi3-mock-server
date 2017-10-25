@@ -53,9 +53,12 @@ OpenAPI specification.
 
 ## In the works
 
-### Adding
+### In progress
 
 * auth header checks
+
+### To do
+
 * Accept header checks to return appropriate response example
 * X-* headers for testing error responses
 * X-* headers for response example selection
