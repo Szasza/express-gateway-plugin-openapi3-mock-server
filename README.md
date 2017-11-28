@@ -1,5 +1,7 @@
 # Express Gateway OpenAPI 3 Mock Server Plugin
 
+[![npm version](https://badge.fury.io/js/express-gateway-plugin-openapi3-mock-server.svg)](https://badge.fury.io/js/express-gateway-plugin-openapi3-mock-server)
+
 **_This plugin is under active development. Would you meet any problems, please open a new issue
 after verifying that there isn't one already._**
 
