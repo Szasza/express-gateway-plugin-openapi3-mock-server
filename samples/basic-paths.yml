@@ -1,9 +1,16 @@
 openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Dummy endpoints for testing"
+  description: "A sample API containing some dummy endpoints for testing"
+  license:
+    name: "MIT"
 paths:
   /dummy-response:
     get:
       responses:
         200:
+          description: "A dummy GET response"
           content:
             application/json:
               examples:
@@ -13,6 +20,7 @@ paths:
     post:
       responses:
         201:
+          description: "A dummy POST response"
           content:
             application/json:
               examples:
@@ -22,6 +30,7 @@ paths:
     put:
       responses:
         200:
+          description: "A dummy PUT response"
           content:
             application/json:
               examples:
@@ -31,6 +40,7 @@ paths:
     patch:
       responses:
         200:
+          description: "A dummy PATCH response"
           content:
             application/json:
               examples:
@@ -40,9 +50,98 @@ paths:
     delete:
       responses:
         200:
+          description: "A dummy DELETE response"
           content:
             application/json:
               examples:
                 dummy:
                   value:
                     status: "DELETE ok"
+  /secure-dummy-response:
+      get:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [read:data]
+        responses:
+          200:
+            description: "A dummy but auth-checked GET response"
+            content:
+              application/json:
+                examples:
+                  dummy:
+                    value:
+                      status: "GET ok"
+      post:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
+        responses:
+          201:
+            description: "A dummy but auth-checked POST response"
+            content:
+              application/json:
+                examples:
+                  dummy:
+                    value:
+                      status: "POST ok"
+      put:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
+        responses:
+          200:
+            description: "A dummy but auth-checked PUT response"
+            content:
+              application/json:
+                examples:
+                  dummy:
+                    value:
+                      status: "PUT ok"
+      patch:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
+        responses:
+          200:
+            description: "A dummy but auth-checked PATCH response"
+            content:
+              application/json:
+                examples:
+                  dummy:
+                    value:
+                      status: "PATCH ok"
+      delete:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
+        responses:
+          200:
+            description: "A dummy but auth-checked DELETE response"
+            content:
+              application/json:
+                examples:
+                  dummy:
+                    value:
+                      status: "DELETE ok"
+components:
+  securitySchemes:
+    basicAuth:
+      type: "http"
+      scheme: "basic"
+    apiKey:
+      type: "apiKey"
+      name: "api_key_in_header"
+      in: "header"
+    oAuth:
+      type: "oauth2"
+      flows:
+        implicit:
+          authorizationUrl: "https://example.com/api/oauth/dialog"
+          scopes:
+            write:data: "modify some data in your account"
+            read:data: "read your data"

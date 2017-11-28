@@ -51,11 +51,13 @@ pipelines:
 The above configuration disables the Admin CLI and will do nothing but provide a dummy responder based on your 
 OpenAPI specification.
 
-## In the works
+## Features
 
-### Adding
+* Endpoints with appropriate request types are parsed and the first response example is used as a response body.
+* HTTP and apiKey auth header check support
 
-* auth header checks
+### To do
+
 * Accept header checks to return appropriate response example
 * X-* headers for testing error responses
 * X-* headers for response example selection

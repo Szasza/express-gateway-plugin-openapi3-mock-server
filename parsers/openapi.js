@@ -1,6 +1,11 @@
 const RefParser = require('json-schema-ref-parser')
 const deasync = require('deasync')
 
+/**
+ * Parses the API specification YML into a JSON object.
+ * @param filePath
+ * @returns {{}}
+ */
 module.exports = function (filePath) {
     const parserOptions = {
         dereference: {
