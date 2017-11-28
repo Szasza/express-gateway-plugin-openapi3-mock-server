@@ -62,7 +62,6 @@ paths:
         security:
           - basicAuth: []
           - apiKey: []
-          - jwtToken: []
           - oAuth: [read:data]
         responses:
           200:
@@ -74,6 +73,10 @@ paths:
                     value:
                       status: "GET ok"
       post:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
         responses:
           201:
             description: "A dummy but auth-checked POST response"
@@ -84,6 +87,10 @@ paths:
                     value:
                       status: "POST ok"
       put:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
         responses:
           200:
             description: "A dummy but auth-checked PUT response"
@@ -94,6 +101,10 @@ paths:
                     value:
                       status: "PUT ok"
       patch:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
         responses:
           200:
             description: "A dummy but auth-checked PATCH response"
@@ -104,6 +115,10 @@ paths:
                     value:
                       status: "PATCH ok"
       delete:
+        security:
+          - basicAuth: []
+          - apiKey: []
+          - oAuth: [write:data]
         responses:
           200:
             description: "A dummy but auth-checked DELETE response"
@@ -122,10 +137,6 @@ components:
       type: "apiKey"
       name: "api_key_in_header"
       in: "header"
-    jwtToken:
-      type: "http"
-      scheme: "bearer"
-      bearerFormat: "JWT"
     oAuth:
       type: "oauth2"
       flows:

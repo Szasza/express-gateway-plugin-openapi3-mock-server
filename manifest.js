@@ -1,4 +1,4 @@
-const parse = require('./parser/parse')
+const parser = require('./parsers/openapi')
 const register = require('./router/register')
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
             }
         })
 
-        const definition = parse(pluginContext.settings.definitionFile)
+        const definition = parser(pluginContext.settings.definitionFile)
 
         register(definition.paths, definition.components, pluginContext)
     },
