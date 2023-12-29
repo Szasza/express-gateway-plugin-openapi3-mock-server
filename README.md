@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/express-gateway-plugin-openapi3-mock-server.svg)](https://badge.fury.io/js/express-gateway-plugin-openapi3-mock-server)
 
-> **DEPRECATION NOTICE** Following the main Express Gateway's deprecation, this Project is no longer maintained.
+> **DEPRECATION NOTICE** Following the main Express Gateway's deprecation, this project is no longer maintained.
 
 ## Prerequisites
 
